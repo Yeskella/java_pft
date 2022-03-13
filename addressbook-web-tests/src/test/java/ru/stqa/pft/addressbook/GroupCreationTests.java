@@ -1,17 +1,17 @@
 package ru.stqa.pft.addressbook;
 
 import java.util.concurrent.TimeUnit;
-import org.junit.*;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.*;
+
+
 
 public class GroupCreationTests {
   private WebDriver wd;
 
-
-  @Before
+  @BeforeMethod
   public void setUp() throws Exception {
     wd = new ChromeDriver();
     wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
@@ -42,7 +42,7 @@ public class GroupCreationTests {
     wd.findElement(By.linkText("Logout")).click();
   }
 
-  @After
+  @AfterMethod
   public void tearDown() throws Exception {
     wd.quit();
   }

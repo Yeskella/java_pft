@@ -56,6 +56,7 @@ public class GroupCreationTests {
     }
   }
 
+
   private boolean isAlertPresent() {
     try {
       wd.switchTo().alert();

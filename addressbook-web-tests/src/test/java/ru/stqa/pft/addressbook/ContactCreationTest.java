@@ -30,13 +30,13 @@ public class ContactCreationTest {
 
   @Test
   public void testContactCreation() throws Exception {
-    addNewContact();
-    fillContactForm(new GroupContact("John", "Middle", "New-York", "green@site.com", "+333334"));
+    initContactCreation();
+    fillContactForm(new GroupDataContact("John", "Middle", "New-York", "green@site.com", "+333334"));
     enterForm();
-    GoHome();
+    goHome();
   }
 
-  private void GoHome() {
+  private void goHome() {
     wd.findElement(By.linkText("home page")).click();
   }
 
@@ -44,25 +44,25 @@ public class ContactCreationTest {
     wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
   }
 
-  private void fillContactForm(GroupContact groupContact) {
+  private void fillContactForm(GroupDataContact groupDataContact) {
     wd.findElement(By.name("firstname")).click();
     wd.findElement(By.name("firstname")).clear();
-    wd.findElement(By.name("firstname")).sendKeys(groupContact.getName());
+    wd.findElement(By.name("firstname")).sendKeys(groupDataContact.getName());
     wd.findElement(By.name("lastname")).click();
     wd.findElement(By.name("lastname")).clear();
-    wd.findElement(By.name("lastname")).sendKeys(groupContact.getFamily());
+    wd.findElement(By.name("lastname")).sendKeys(groupDataContact.getFamily());
     wd.findElement(By.name("address")).click();
     wd.findElement(By.name("address")).clear();
-    wd.findElement(By.name("address")).sendKeys(groupContact.getAddress());
+    wd.findElement(By.name("address")).sendKeys(groupDataContact.getAddress());
     wd.findElement(By.name("email")).click();
     wd.findElement(By.name("email")).clear();
-    wd.findElement(By.name("email")).sendKeys(groupContact.getEmail());
+    wd.findElement(By.name("email")).sendKeys(groupDataContact.getEmail());
     wd.findElement(By.name("home")).click();
     wd.findElement(By.name("home")).clear();
-    wd.findElement(By.name("home")).sendKeys(groupContact.getPhone());
+    wd.findElement(By.name("home")).sendKeys(groupDataContact.getPhone());
   }
 
-  private void addNewContact() {
+  private void initContactCreation() {
     wd.findElement(By.linkText("add new")).click();
   }
 

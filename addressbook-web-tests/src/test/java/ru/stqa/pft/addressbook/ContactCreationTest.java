@@ -31,7 +31,7 @@ public class ContactCreationTest {
   @Test
   public void testContactCreation() throws Exception {
     initContactCreation();
-    fillContactForm(new СontactData("John", "Middle", "New-York", "green@site.com", "+333334"));
+    fillContactForm(new ContactData("John", "Middle", "New-York", "green@site.com", "+333334"));
     enterForm();
     goHome();
   }
@@ -44,7 +44,7 @@ public class ContactCreationTest {
     wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
   }
 
-  private void fillContactForm(СontactData СontactData) {
+  private void fillContactForm(ContactData СontactData) {
     wd.findElement(By.name("firstname")).click();
     wd.findElement(By.name("firstname")).clear();
     wd.findElement(By.name("firstname")).sendKeys(СontactData.getName());

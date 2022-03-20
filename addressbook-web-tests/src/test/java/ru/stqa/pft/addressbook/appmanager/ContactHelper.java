@@ -31,13 +31,17 @@ public class ContactHelper extends HelperBase{
     click(By.linkText("add new"));
   }
 
-  public void clickEdit() {
+  public void submitEditMifications() {
     click(By.xpath("//img[@alt='Edit']"));
 
   }
 
-  public void updateForm() {
+  public void submitUpdateContact() {
     click(By.xpath("//div[@id='content']/form/input[22]"));
 
+  }
+
+  public void submitDeletedContact() {
+    click(By.xpath("//div[@id='content']/form[2]/input[2]"));
   }
 }

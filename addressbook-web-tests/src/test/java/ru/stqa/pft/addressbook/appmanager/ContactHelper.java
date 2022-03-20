@@ -2,6 +2,8 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 
 public class ContactHelper extends HelperBase{
@@ -18,12 +20,18 @@ public class ContactHelper extends HelperBase{
     click(By.xpath("//div[@id='content']/form/input[21]"));
   }
 
-  public void fillContactForm(ContactData ContactData) {
-    type((By.name("firstname")), ContactData.getName());
-    type((By.name("lastname")), ContactData.getLastname());
-    type((By.name("address")), ContactData.getAddress());
-    type((By.name("email")), ContactData.getEmail());
-    type((By.name("home")), ContactData.getPhone());
+  public void fillContactForm(ContactData contactData, boolean creation) {
+    type((By.name("firstname")), contactData.getName());
+    type((By.name("lastname")), contactData.getLastname());
+    type((By.name("address")), contactData.getAddress());
+    type((By.name("email")), contactData.getEmail());
+    type((By.name("home")), contactData.getPhone());
+
+    if (creation) {
+      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+    } else {
+      Assert.assertFalse(isElementsPresent(By.name("new_group")));
+    }
 
   }
 
@@ -31,7 +39,7 @@ public class ContactHelper extends HelperBase{
     click(By.linkText("add new"));
   }
 
-  public void submitEditMifications() {
+  public void submitEditModifications() {
     click(By.xpath("//img[@alt='Edit']"));
 
   }

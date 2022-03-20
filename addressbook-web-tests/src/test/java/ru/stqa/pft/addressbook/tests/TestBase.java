@@ -8,7 +8,7 @@ import ru.stqa.pft.addressbook.appmanager.ApplicationManager;
 public class TestBase {
 
 
-  public final ApplicationManager app = new ApplicationManager(BrowserType.FIREFOX);
+  public final ApplicationManager app = new ApplicationManager(BrowserType.CHROME);
 
   @BeforeMethod
   public void setUp() throws Exception {
